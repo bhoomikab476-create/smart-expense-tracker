@@ -1,2 +1,2 @@
 # smart-expense-tracker
-Java Backend Expense Tracker using JDBC, Hibernate, and MySQL
+Java Backend Expense Tracker using JDBC, Hibernate, and SQL
