@@ -1,0 +1,21 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+public class ExpenseDAO {
+
+    public void addExpense(Expense expense) throws Exception {
+        Connection con = DBConnection.getConnection();
+
+        String sql = "INSERT INTO expenses(user_id, category_id, amount, expense_date, note) VALUES (?, ?, ?, ?, ?)";
+        PreparedStatement ps = con.prepareStatement(sql);
+
+        ps.setInt(1, expense.getUserId());
+        ps.setInt(2, expense.getCategoryId());
+        ps.setDouble(3, expense.getAmount());
+        ps.setDate(4, new java.sql.Date(expense.getExpenseDate().getTime()));
+        ps.setString(5, expense.getNote());
+
+        ps.executeUpdate();
+        con.close();
+    }
+}
